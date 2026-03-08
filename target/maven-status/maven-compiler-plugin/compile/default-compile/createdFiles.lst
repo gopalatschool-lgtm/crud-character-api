@@ -1,5 +1,5 @@
-com/csc340/crud_api/CharacterApiController.class
 com/csc340/crud_api/CharacterService.class
 com/csc340/crud_api/Character.class
 com/csc340/crud_api/CrudCharacterApiApplication.class
 com/csc340/crud_api/CharacterRepository.class
+com/csc340/crud_api/CharacterController.class

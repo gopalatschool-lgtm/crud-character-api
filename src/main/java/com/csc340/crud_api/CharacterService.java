@@ -1,7 +1,5 @@
 package com.csc340.crud_api;
 
-import com.csc340.crud_api.entity.Character;
-import com.csc340.crud_api.repository.CharacterRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

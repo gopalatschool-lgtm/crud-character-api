@@ -15,11 +15,13 @@ public class CharacterController {
         this.service = service;
     }
 
+    // GET all characters
     @GetMapping
     public List<Character> getAll() {
         return service.getAllCharacters();
     }
 
+    // GET character by ID
     @GetMapping("/{id}")
     public ResponseEntity<Character> getById(@PathVariable Long id) {
         return service.getCharacterById(id)
@@ -27,11 +29,13 @@ public class CharacterController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    // POST create new character
     @PostMapping
     public Character addCharacter(@RequestBody Character character) {
         return service.addCharacter(character);
     }
 
+    // PUT update character
     @PutMapping("/{id}")
     public ResponseEntity<Character> updateCharacter(@PathVariable Long id, @RequestBody Character character) {
         Character updated = service.updateCharacter(id, character);
@@ -41,17 +45,20 @@ public class CharacterController {
         return ResponseEntity.ok(updated);
     }
 
+    // DELETE character
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCharacter(@PathVariable Long id) {
         boolean deleted = service.deleteCharacter(id);
         return deleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/category/{category}")
-    public List<Character> getByUniverse(@PathVariable String category) {
-        return service.getCharactersByUniverse(category);
+    // FILTER by role
+    @GetMapping("/role/{role}")
+    public List<Character> getCharactersByRole(@PathVariable String role) {
+        return service.getCharactersByRole(role);
     }
 
+    // SEARCH by name
     @GetMapping("/search")
     public List<Character> searchByName(@RequestParam String name) {
         return service.searchCharactersByName(name);
