@@ -51,4 +51,9 @@ public class CharacterService {
     public List<Character> searchCharactersByName(String name) {
         return repository.findByNameContainingIgnoreCase(name);
     }
+
+    // FILTER BY ROLE
+    public List<Character> getCharactersByRole(String role) {
+        return repository.findByRole(role);
+    }
 }
