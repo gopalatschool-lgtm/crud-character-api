@@ -63,4 +63,9 @@ public class CharacterController {
     public List<Character> searchByName(@RequestParam String name) {
         return service.searchCharactersByName(name);
     }
+
+    @GetMapping("/age/{age}")
+    public List<Character> getCharactersOlderThan(@PathVariable double age) {
+        return service.getCharactersOlderThan(age);
+    }
 }
