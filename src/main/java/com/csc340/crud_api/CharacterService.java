@@ -56,4 +56,8 @@ public class CharacterService {
     public List<Character> getCharactersByRole(String role) {
         return repository.findByRole(role);
     }
+
+    public List<Character> getCharactersOlderThan(double age) {
+        return repository.findCharactersOlderThan(age);
+    }
 }

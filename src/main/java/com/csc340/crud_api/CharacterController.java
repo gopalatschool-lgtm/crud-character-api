@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/characters")
+@RequestMapping("/api/characters")
 public class CharacterController {
 
     private final CharacterService service;
@@ -62,5 +62,10 @@ public class CharacterController {
     @GetMapping("/search")
     public List<Character> searchByName(@RequestParam String name) {
         return service.searchCharactersByName(name);
+    }
+
+    @GetMapping("/age/{age}")
+    public List<Character> getCharactersOlderThan(@PathVariable double age) {
+        return service.getCharactersOlderThan(age);
     }
 }
